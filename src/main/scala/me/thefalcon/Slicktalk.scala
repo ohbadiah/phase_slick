@@ -6,11 +6,13 @@ import Database.{threadLocalSession => session}
 import scala.slick.direct._
 import scala.slick.direct.AnnotationMapper._
 
-val db = Database.forURL(
-  "jdbc:mysql://localhost/baseball?user=baseball&password=playball", 
-  driver = "com.mysql.jdbc.Driver")
 
 object Slicktalk extends App {
+
+  val db = Database.forURL(
+    "jdbc:mysql://localhost/baseball?user=baseball&password=playball", 
+    driver = "com.mysql.jdbc.Driver")
+
   // Represents one player's batting statistics on one team in one year
   object Batting extends Table[(String, Int, String, Int)]("Batting") {
     def playerId = column[String]("playerID")
